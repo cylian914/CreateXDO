@@ -13,10 +13,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ItemRequirementMixin {
     @Inject(remap = false, method = "defaultOf", at = @At(value = "TAIL"), cancellable = true)
     private static void fixDONotHavingData(BlockState state, BlockEntity be, CallbackInfoReturnable<ItemRequirement> cir) {
-        if (be != null && be.getLevel() != null)
+        if (be != null && be.getLevel() != null) {
             try {
                 cir.setReturnValue(new ItemRequirement(new ItemRequirement.StrictNbtStackRequirement(state.getCloneItemStack(null, be.getLevel(), be.getBlockPos(), null), ItemRequirement.ItemUseType.CONSUME)));
             } catch (Exception ignored) {
             }
+        }
     }
 }

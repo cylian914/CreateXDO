@@ -18,7 +18,6 @@ public class schematicPrinterMixin {
     @Inject(remap = false, method = "getCurrentRequirement", at = @At(value = "INVOKE", target = "Lcom/simibubi/create/content/schematics/requirement/ItemRequirement;of(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntity;)Lcom/simibubi/create/content/schematics/requirement/ItemRequirement;"))
     private void setLevelBE(CallbackInfoReturnable<ItemRequirement> cir, @Local(ordinal = 0) BlockEntity e) {
         try {
-            LogUtils.getLogger().warn("aaa: {}", SchematicPrinter.class.getDeclaredField("blockReader").get(this));
         if (e != null)
             e.setLevel((Level) SchematicPrinter.class.getDeclaredField("blockReader").get(this));
         }catch (Exception ignored) {}
