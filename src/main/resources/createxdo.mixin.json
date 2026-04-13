@@ -1,0 +1,10 @@
+{
+  "refmap": "createxdo.mixin.refmap.json",
+  "minVersion": "0.8",
+  "priority": 1000,
+  "package": "fr.tess.Createxdo.mixin",
+  "mixins": [
+    "create.ItemRequirementMixin",
+    "create.schematicPrinterMixin"
+  ]
+}
